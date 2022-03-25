@@ -31,7 +31,7 @@ let TasksController = class TasksController {
         user.cidade = cidade;
         await database_providers_1.AppDataSource.manager.save(user);
         console.log('Saved a new user with id: ' + user.id);
-        return { data: 'Entrei no Create' };
+        return user;
     }
     async getOne(id) {
         const peronRepository = database_providers_1.AppDataSource.getRepository(person_model_1.PersonModel);

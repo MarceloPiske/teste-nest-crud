@@ -6,8 +6,6 @@ import { CreateUser } from './schemas/person.schema';
 @Controller('tasks')
 export class TasksController {
   model: any;
-  /* constructor(
-    ) {} */
   @Post()
   public async create(@Body() body: CreateUser): Promise<any> {
     const nome = body['nome'];
@@ -24,7 +22,7 @@ export class TasksController {
     user.cidade = cidade;
     await AppDataSource.manager.save(user);
     console.log('Saved a new user with id: ' + user.id);
-    return { data: 'Entrei no Create' };
+    return user;
   }
 
   @Get(':id')
